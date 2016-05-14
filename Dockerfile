@@ -1,7 +1,7 @@
 FROM debian
 MAINTAINER Jacek Kowalski <Jacek@jacekk.info>
 
-ENV UNIFI_VERSION 4.8.15
+ENV UNIFI_VERSION 4.8.16
 
 RUN apt-get update \
 	&& apt-get -y dist-upgrade \
