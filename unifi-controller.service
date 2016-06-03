@@ -1,0 +1,23 @@
+[Unit]
+Description=Ubituiti Unifi Controller
+After=docker.service
+
+[Service]
+Restart=always
+RestartSec=1
+ExecStartPre=-/usr/bin/docker kill unifi-controller
+ExecStartPre=-/usr/bin/docker rm -f unifi-controller
+ExecStartPre=-/usr/bin/docker pull jkarras/unifi-controller
+ExecStartPre=-/usr/bin/docker create --name="unifi-controller-backing" jkarras/unifi-controller
+ExecStart=/usr/bin/docker run \
+	--name unifi-controller \
+	-m 1g \
+	--cpu-period=100000 \
+	--cpu-quota=200000 \
+	--volumes-from=unifi-controller-backing \
+	--net=host \
+	jkarras/unifi-controller
+ExecStop=/usr/bin/docker stop -t 2 unifi-controller
+
+[Install]
+WantedBy=multi-user.target
