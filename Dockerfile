@@ -1,7 +1,7 @@
 FROM debian
 MAINTAINER Jacek Kowalski <Jacek@jacekk.info>
 
-ENV UNIFI_VERSION 4.8.18
+ENV UNIFI_VERSION 5.0.6
 
 RUN apt-get update \
 	&& apt-get -y dist-upgrade \
@@ -9,7 +9,7 @@ RUN apt-get update \
 	&& apt-get -y clean
 
 RUN cd /tmp \
-	&& wget "http://dl.ubnt.com/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb" \
+	&& wget "https://www.ubnt.com/downloads/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb" \
 	&& dpkg -i unifi_sysvinit_all.deb \
 	&& rm -rf unifi_sysvinit_all.deb /var/lib/unifi/*
 
