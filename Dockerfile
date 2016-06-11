@@ -11,7 +11,7 @@ RUN apt-get update \
 RUN cd /tmp \
 	&& wget "http://dl.ubnt.com/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb" \
 	&& dpkg -i unifi_sysvinit_all.deb \
-	&& rm -rf /var/lib/unifi/*
+	&& rm -rf unifi_sysvinit_all.deb /var/lib/unifi/*
 
 EXPOSE 8080 8081 8443 8843 8880
 
