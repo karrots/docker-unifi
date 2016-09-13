@@ -1,7 +1,7 @@
 FROM debian
 MAINTAINER Jacek Kowalski <Jacek@jacekk.info>
 
-ENV UNIFI_VERSION 5.0.8
+ENV UNIFI_VERSION 5.2.4-u2ksi9dl0c
 
 RUN apt-get update \
 	&& apt-get -y dist-upgrade \
