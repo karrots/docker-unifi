@@ -1,7 +1,7 @@
 FROM debian
 MAINTAINER Jacek Kowalski <Jacek@jacekk.info>
 
-ENV UNIFI_VERSION 5.0.7
+ENV UNIFI_VERSION 5.2.7
 
 RUN apt-get update \
 	&& apt-get -y dist-upgrade \
