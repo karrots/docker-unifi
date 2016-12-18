@@ -1,7 +1,7 @@
 FROM debian
 MAINTAINER Jacek Kowalski <Jacek@jacekk.info>
 
-ENV UNIFI_VERSION 5.2.9
+ENV UNIFI_VERSION 5.3.8
 
 RUN apt-get update \
 	&& apt-get -y dist-upgrade \
