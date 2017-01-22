@@ -1,7 +1,7 @@
 FROM debian
 MAINTAINER Jacek Kowalski <Jacek@jacekk.info>, Jonathan Karras <jkarras@karras.net>
 
-ENV UNIFI_VERSION 5.3.11-ac65a94337
+ENV UNIFI_VERSION 5.4.9-5394030713
 
 RUN apt-get update \
 	&& apt-get -y dist-upgrade \
