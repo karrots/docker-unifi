@@ -5,8 +5,9 @@ ENV UNIFI_VERSION 5.4.9-5394030713
 
 RUN apt-get update \
 	&& apt-get -y dist-upgrade \
-	&& apt-get -y install wget jsvc openjdk-7-jre-headless mongodb-server binutils \
-	&& apt-get -y clean
+	&& apt-get -y install --no-install-recommends wget jsvc openjdk-7-jre-headless mongodb-server binutils \
+	&& apt-get -y clean \
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN cd /tmp \
 	&& wget "https://www.ubnt.com/downloads/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb" \
