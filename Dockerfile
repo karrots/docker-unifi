@@ -1,7 +1,7 @@
 FROM debian
 MAINTAINER Jacek Kowalski <Jacek@jacekk.info>, Jonathan Karras <jkarras@karras.net>
 
-ENV UNIFI_VERSION 5.4.11-6cbeae59e7
+ENV UNIFI_VERSION 5.4.12-31875fd82e
 
 RUN apt-get update \
 	&& apt-get -y dist-upgrade \
