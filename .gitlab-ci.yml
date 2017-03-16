@@ -23,6 +23,6 @@ release-image:
     - export IMAGE_TAG=$(echo -en $CI_BUILD_REF_NAME | tr -c '[:alnum:]_.-' '-')
     - docker pull "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
     - docker tag "$CI_REGISTRY_IMAGE:$IMAGE_TAG" "$CI_REGISTRY_IMAGE:latest"
-    - docker push "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
+    - docker push "$CI_REGISTRY_IMAGE:latest"
   only:
     - master
