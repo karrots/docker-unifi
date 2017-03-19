@@ -1,11 +1,14 @@
-FROM debian
+FROM debian:jessie
 MAINTAINER Jacek Kowalski <Jacek@jacekk.info>, Jonathan Karras <jkarras@karras.net>
 
 ENV UNIFI_VERSION 5.4.12-31875fd82e
 
-RUN apt-get update \
+RUN echo 'deb http://httpredir.debian.org/debian jessie-backports main' > \
+                /etc/apt/sources.list.d/jessie-backports.list \
+	&& apt-get update \
 	&& apt-get -y dist-upgrade \
-	&& apt-get -y install --no-install-recommends wget jsvc openjdk-7-jre-headless mongodb-server binutils \
+	&& apt-get -y -t jessie-backports install \
+		wget jsvc openjdk-8-jre-headless mongodb-server binutils \
 	&& apt-get -y clean \
 	&& rm -rf /var/lib/apt/lists/*
 
