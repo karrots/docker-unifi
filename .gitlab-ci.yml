@@ -8,19 +8,19 @@ stages:
   - release
 
 before_script:
-  - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" $CI_REGISTRY
+  - docker login -u "gitlab-ci-token" -p "$CI_JOB_TOKEN" $CI_REGISTRY
 
 build:
   stage: build
   script:
-    - export IMAGE_TAG=$(echo -en $CI_BUILD_REF_NAME | tr -c '[:alnum:]_.-' '-')
+    - export IMAGE_TAG=$(echo -en $CI_COMMIT_REF_SLUG | tr -c '[:alnum:]_.-' '-')
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$IMAGE_TAG" .
     - docker push "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
 
 release-image:
   stage: release
   script:
-    - export IMAGE_TAG=$(echo -en $CI_BUILD_REF_NAME | tr -c '[:alnum:]_.-' '-')
+    - export IMAGE_TAG=$(echo -en $CI_COMMIT_REF_SLUG | tr -c '[:alnum:]_.-' '-')
     - docker pull "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
     - docker tag "$CI_REGISTRY_IMAGE:$IMAGE_TAG" "$CI_REGISTRY_IMAGE:latest"
     - docker push "$CI_REGISTRY_IMAGE:latest"
