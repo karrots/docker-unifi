@@ -14,9 +14,8 @@ RUN echo 'deb http://httpredir.debian.org/debian jessie-backports main' > \
 RUN cd /tmp \
 	&& wget "https://www.ubnt.com/downloads/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb" \
 	&& dpkg -i unifi_sysvinit_all.deb \
-	&& rm -rf unifi_sysvinit_all.deb /var/lib/unifi/*
-
-RUN groupadd -r -g 500 unifi \
+	&& rm -rf unifi_sysvinit_all.deb /var/lib/unifi/* \
+	&& groupadd -r -g 500 unifi \
 	&& useradd -r -d /usr/lib/unifi -u 500 -g 500 unifi \
 	&& chown -Rf unifi:unifi /usr/lib/unifi
 
