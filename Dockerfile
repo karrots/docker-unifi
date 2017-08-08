@@ -1,13 +1,11 @@
-FROM debian:jessie
+FROM debian
 MAINTAINER Jacek Kowalski <Jacek@jacekk.info>
 
 ENV UNIFI_VERSION 5.4.19
 
-RUN echo 'deb http://httpredir.debian.org/debian jessie-backports main' > \
-                /etc/apt/sources.list.d/jessie-backports.list \
-	&& apt-get update \
+RUN apt-get update \
 	&& apt-get -y dist-upgrade \
-	&& apt-get -y -t jessie-backports install \
+	&& apt-get -y install \
 		wget jsvc openjdk-8-jre-headless mongodb-server binutils sudo \
 	&& apt-get -y clean
 
