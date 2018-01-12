@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Jacek Kowalski <Jacek@jacekk.info>, Jonathan Karras <jkarras@karras.net>
 
-ENV UNIFI_VERSION 5.6.23-7a972feffc
+ENV UNIFI_VERSION 5.6.30-4a50e978a2
 
 RUN echo 'deb http://httpredir.debian.org/debian jessie-backports main' > \
                 /etc/apt/sources.list.d/jessie-backports.list \
